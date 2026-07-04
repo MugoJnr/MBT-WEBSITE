@@ -1,3 +1,57 @@
+const BREVO_HEADERS = (apiKey) => ({
+  "api-key": apiKey,
+  "Content-Type": "application/json",
+  Accept: "application/json",
+});
+
+async function sendWelcomeEmail(apiKey, email) {
+  const templateId = Number(process.env.BREVO_WELCOME_TEMPLATE_ID || 1);
+  const senderEmail =
+    process.env.BREVO_SENDER_EMAIL || "admin@mugobyte.com";
+  const senderName =
+    process.env.BREVO_SENDER_NAME || "MugoByte Technologies";
+
+  const response = await fetch("https://api.brevo.com/v3/smtp/email", {
+    method: "POST",
+    headers: BREVO_HEADERS(apiKey),
+    body: JSON.stringify({
+      templateId,
+      to: [{ email }],
+      sender: { name: senderName, email: senderEmail },
+      tags: ["welcome", "newsletter"],
+    }),
+  });
+
+  if (response.ok || response.status === 201) {
+    return { sent: true };
+  }
+
+  // Fallback HTML if template is unavailable
+  const fallback = await fetch("https://api.brevo.com/v3/smtp/email", {
+    method: "POST",
+    headers: BREVO_HEADERS(apiKey),
+    body: JSON.stringify({
+      sender: { name: senderName, email: senderEmail },
+      to: [{ email }],
+      subject: "Welcome to Mugobyte Technologies",
+      tags: ["welcome", "newsletter"],
+      htmlContent: `
+        <div style="font-family:Arial,sans-serif;background:#0a0f1a;color:#e8eef7;padding:32px">
+          <div style="max-width:560px;margin:0 auto;background:#111827;border-radius:16px;padding:28px;border:1px solid #1f2937">
+            <p style="color:#00d4ff;letter-spacing:2px;font-size:12px;text-transform:uppercase">Mugobyte Technologies</p>
+            <h1 style="color:#fff;font-size:24px;margin:8px 0 16px">Welcome to MBT</h1>
+            <p style="color:#cbd5e1;line-height:1.6">Thanks for subscribing. You will get news on new MBT products and updates.</p>
+            <p style="margin:24px 0"><a href="https://www.mugobyte.com" style="background:#00d4ff;color:#041018;text-decoration:none;padding:12px 20px;border-radius:999px;font-weight:700">Visit mugobyte.com</a></p>
+            <p style="font-size:13px"><a href="https://www.instagram.com/mugobyte/" style="color:#00d4ff">Follow us on Instagram</a></p>
+          </div>
+        </div>
+      `,
+    }),
+  });
+
+  return { sent: fallback.ok || fallback.status === 201 };
+}
+
 module.exports = async function handler(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
@@ -38,11 +92,7 @@ module.exports = async function handler(req, res) {
   try {
     const response = await fetch("https://api.brevo.com/v3/contacts", {
       method: "POST",
-      headers: {
-        "api-key": apiKey,
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
+      headers: BREVO_HEADERS(apiKey),
       body: JSON.stringify({
         email,
         listIds: [listId],
@@ -53,24 +103,32 @@ module.exports = async function handler(req, res) {
       }),
     });
 
-    if (response.ok || response.status === 204) {
-      return res.status(200).json({ ok: true });
-    }
-
     const data = await response.json().catch(() => ({}));
     const message = String(data.message || data.error || "");
+    const existing =
+      response.status === 400 && /already|duplicate|exist/i.test(message);
 
-    // Already subscribed — treat as success
-    if (
-      response.status === 400 &&
-      /already|duplicate|exist/i.test(message)
-    ) {
-      return res.status(200).json({ ok: true, existing: true });
+    if (!(response.ok || response.status === 204 || existing)) {
+      return res
+        .status(response.status)
+        .json({ error: message || "Subscribe failed" });
     }
 
-    return res
-      .status(response.status)
-      .json({ error: message || "Subscribe failed" });
+    let welcomeSent = false;
+    if (!existing) {
+      try {
+        const welcome = await sendWelcomeEmail(apiKey, email);
+        welcomeSent = Boolean(welcome.sent);
+      } catch {
+        welcomeSent = false;
+      }
+    }
+
+    return res.status(200).json({
+      ok: true,
+      existing: Boolean(existing),
+      welcomeSent,
+    });
   } catch (err) {
     return res.status(500).json({ error: "Newsletter service unavailable" });
   }
