@@ -11,45 +11,56 @@ async function sendWelcomeEmail(apiKey, email) {
   const senderName =
     process.env.BREVO_SENDER_NAME || "MugoByte Technologies";
 
-  const response = await fetch("https://api.brevo.com/v3/smtp/email", {
+  const payload = {
+    sender: { name: senderName, email: senderEmail },
+    to: [{ email }],
+    subject: "Welcome to Mugobyte Technologies",
+    tags: ["welcome", "newsletter"],
+    htmlContent: `
+      <div style="font-family:Arial,sans-serif;background:#0a0f1a;color:#e8eef7;padding:32px">
+        <div style="max-width:560px;margin:0 auto;background:#111827;border-radius:16px;padding:28px;border:1px solid #1f2937">
+          <p style="color:#00d4ff;letter-spacing:2px;font-size:12px;text-transform:uppercase">Mugobyte Technologies</p>
+          <h1 style="color:#fff;font-size:24px;margin:8px 0 16px">Welcome to MBT</h1>
+          <p style="color:#cbd5e1;line-height:1.6">Thanks for subscribing. You will get news on new MBT products and updates.</p>
+          <p style="margin:24px 0"><a href="https://www.mugobyte.com" style="background:#00d4ff;color:#041018;text-decoration:none;padding:12px 20px;border-radius:999px;font-weight:700">Visit mugobyte.com</a></p>
+          <p style="font-size:13px"><a href="https://www.instagram.com/mugobyte/" style="color:#00d4ff">Follow us on Instagram</a></p>
+          <p style="color:#94a3b8;font-size:12px;margin-top:24px">MUGOBYTE TECHNOLOGIES (MBT) &middot; admin@mugobyte.com</p>
+        </div>
+      </div>
+    `,
+  };
+
+  // Prefer template when available
+  const withTemplate = {
+    templateId,
+    to: [{ email }],
+    sender: { name: senderName, email: senderEmail },
+    tags: ["welcome", "newsletter"],
+  };
+
+  let response = await fetch("https://api.brevo.com/v3/smtp/email", {
     method: "POST",
     headers: BREVO_HEADERS(apiKey),
-    body: JSON.stringify({
-      templateId,
-      to: [{ email }],
-      sender: { name: senderName, email: senderEmail },
-      tags: ["welcome", "newsletter"],
-    }),
+    body: JSON.stringify(withTemplate),
   });
 
   if (response.ok || response.status === 201) {
     return { sent: true };
   }
 
-  // Fallback HTML if template is unavailable
-  const fallback = await fetch("https://api.brevo.com/v3/smtp/email", {
+  response = await fetch("https://api.brevo.com/v3/smtp/email", {
     method: "POST",
     headers: BREVO_HEADERS(apiKey),
-    body: JSON.stringify({
-      sender: { name: senderName, email: senderEmail },
-      to: [{ email }],
-      subject: "Welcome to Mugobyte Technologies",
-      tags: ["welcome", "newsletter"],
-      htmlContent: `
-        <div style="font-family:Arial,sans-serif;background:#0a0f1a;color:#e8eef7;padding:32px">
-          <div style="max-width:560px;margin:0 auto;background:#111827;border-radius:16px;padding:28px;border:1px solid #1f2937">
-            <p style="color:#00d4ff;letter-spacing:2px;font-size:12px;text-transform:uppercase">Mugobyte Technologies</p>
-            <h1 style="color:#fff;font-size:24px;margin:8px 0 16px">Welcome to MBT</h1>
-            <p style="color:#cbd5e1;line-height:1.6">Thanks for subscribing. You will get news on new MBT products and updates.</p>
-            <p style="margin:24px 0"><a href="https://www.mugobyte.com" style="background:#00d4ff;color:#041018;text-decoration:none;padding:12px 20px;border-radius:999px;font-weight:700">Visit mugobyte.com</a></p>
-            <p style="font-size:13px"><a href="https://www.instagram.com/mugobyte/" style="color:#00d4ff">Follow us on Instagram</a></p>
-          </div>
-        </div>
-      `,
-    }),
+    body: JSON.stringify(payload),
   });
 
-  return { sent: fallback.ok || fallback.status === 201 };
+  if (!(response.ok || response.status === 201)) {
+    const err = await response.json().catch(() => ({}));
+    console.error("welcome email failed", response.status, err);
+    return { sent: false, error: err };
+  }
+
+  return { sent: true };
 }
 
 module.exports = async function handler(req, res) {
@@ -97,9 +108,6 @@ module.exports = async function handler(req, res) {
         email,
         listIds: [listId],
         updateEnabled: true,
-        attributes: {
-          SOURCE: "mugobyte.com",
-        },
       }),
     });
 
@@ -114,14 +122,14 @@ module.exports = async function handler(req, res) {
         .json({ error: message || "Subscribe failed" });
     }
 
+    // Always send welcome (new and returning subscribers)
     let welcomeSent = false;
-    if (!existing) {
-      try {
-        const welcome = await sendWelcomeEmail(apiKey, email);
-        welcomeSent = Boolean(welcome.sent);
-      } catch {
-        welcomeSent = false;
-      }
+    try {
+      const welcome = await sendWelcomeEmail(apiKey, email);
+      welcomeSent = Boolean(welcome.sent);
+    } catch (err) {
+      console.error("welcome send error", err);
+      welcomeSent = false;
     }
 
     return res.status(200).json({
@@ -130,6 +138,7 @@ module.exports = async function handler(req, res) {
       welcomeSent,
     });
   } catch (err) {
+    console.error("newsletter error", err);
     return res.status(500).json({ error: "Newsletter service unavailable" });
   }
 };
