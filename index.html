@@ -29,7 +29,7 @@ window.handleNewsletter=async function(e){
   });
   const data=await res.json().catch(()=>({}));
   if(!res.ok){throw new Error(data.error||'Subscribe failed');}
-  success.textContent='✓ Thanks! You are subscribed.';
+  success.textContent='✓ Thanks! Check your inbox for a welcome email.';
   success.style.display='block';
   form.reset();
  }catch(err){
