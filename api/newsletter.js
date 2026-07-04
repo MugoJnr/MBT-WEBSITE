@@ -63,6 +63,45 @@ async function sendWelcomeEmail(apiKey, email) {
   return { sent: true };
 }
 
+async function notifyAdmin(apiKey, subscriberEmail, existing) {
+  const senderEmail =
+    process.env.BREVO_SENDER_EMAIL || "admin@mugobyte.com";
+  const senderName =
+    process.env.BREVO_SENDER_NAME || "MugoByte Technologies";
+  const adminEmail =
+    process.env.BREVO_ADMIN_EMAIL || "admin@mugobyte.com";
+
+  const when = new Date().toLocaleString("en-KE", {
+    timeZone: "Africa/Nairobi",
+  });
+  const status = existing ? "already on the list (resubscribed)" : "new subscriber";
+
+  const response = await fetch("https://api.brevo.com/v3/smtp/email", {
+    method: "POST",
+    headers: BREVO_HEADERS(apiKey),
+    body: JSON.stringify({
+      sender: { name: senderName, email: senderEmail },
+      to: [{ email: adminEmail }],
+      subject: `New MBT newsletter signup: ${subscriberEmail}`,
+      tags: ["newsletter-admin-alert"],
+      htmlContent: `
+        <div style="font-family:Arial,sans-serif;color:#111;line-height:1.5;padding:16px">
+          <h2 style="margin:0 0 12px">Newsletter signup</h2>
+          <p style="margin:0 0 8px"><strong>Email:</strong> ${subscriberEmail}</p>
+          <p style="margin:0 0 8px"><strong>Status:</strong> ${status}</p>
+          <p style="margin:0 0 8px"><strong>Time:</strong> ${when} (EAT)</p>
+          <p style="margin:16px 0 0;color:#555;font-size:13px">
+            View list:
+            <a href="https://app.brevo.com/contact/list-listing/id/5">MBT Newsletter in Brevo</a>
+          </p>
+        </div>
+      `,
+    }),
+  });
+
+  return response.ok || response.status === 201;
+}
+
 module.exports = async function handler(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
@@ -124,6 +163,7 @@ module.exports = async function handler(req, res) {
 
     // Always send welcome (new and returning subscribers)
     let welcomeSent = false;
+    let adminNotified = false;
     try {
       const welcome = await sendWelcomeEmail(apiKey, email);
       welcomeSent = Boolean(welcome.sent);
@@ -132,10 +172,18 @@ module.exports = async function handler(req, res) {
       welcomeSent = false;
     }
 
+    try {
+      adminNotified = await notifyAdmin(apiKey, email, existing);
+    } catch (err) {
+      console.error("admin notify error", err);
+      adminNotified = false;
+    }
+
     return res.status(200).json({
       ok: true,
       existing: Boolean(existing),
       welcomeSent,
+      adminNotified,
     });
   } catch (err) {
     console.error("newsletter error", err);
