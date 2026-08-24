@@ -1,0 +1,108 @@
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="/">Home</a><span>/</span><b>Contact</b></div>
+    <div class="eyebrow">Get in Touch</div>
+    <h1 class="h1" style="max-width:680px">Tell us what you need</h1>
+    <p class="lede">Have something in mind? Fill in the form and choose how to send it — WhatsApp for the fastest response, or email. Either way it reaches the team directly.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="split" style="align-items:start;gap:40px">
+      <div class="card reveal" style="padding:36px">
+        <h2 class="h3" style="font-size:19px;margin-bottom:22px">Send a message</h2>
+        <form id="contactForm" novalidate>
+          <div class="grid-2" style="gap:14px">
+            <div class="field">
+              <label for="cfName">Your Name <span>*</span></label>
+              <input class="input" type="text" id="cfName" name="name" placeholder="John Kamau" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="cfPhone">Phone Number</label>
+              <input class="input" type="tel" id="cfPhone" name="phone" placeholder="+254 712 345 678" autocomplete="tel">
+            </div>
+          </div>
+          <div class="field">
+            <label for="cfEmail">Email Address <span>*</span></label>
+            <input class="input" type="email" id="cfEmail" name="email" placeholder="you@company.com" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="cfService">Service Interested In</label>
+            <select class="input" id="cfService" name="service">
+              <option value="">Select a service…</option>
+              <option>Website Design &amp; Development</option>
+              <option>Cloud Hosting</option>
+              <option>MBT POS System</option>
+              <option>Farm Record Management System</option>
+              <option>AI Trading Bot</option>
+              <option>Business Software Development</option>
+              <option>System Automation</option>
+              <option>Technical Support</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="cfMessage">Message <span>*</span></label>
+            <textarea class="input" id="cfMessage" name="message" placeholder="Tell us about your project, business, or requirements…" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Prepare Message</button>
+          <div class="send-row" id="sendRow">
+            <a class="btn btn-primary" id="sendWhatsApp" href="#" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Z"/><path d="M8.7 9.2c0 3.2 2.9 6.1 6.1 6.1l1.5-1.5-1.9-1.3-1 .6a4.4 4.4 0 0 1-2.5-2.5l.6-1-1.3-1.9-1.5 1.5Z"/></svg>
+              Send via WhatsApp
+            </a>
+            <a class="btn btn-secondary" id="sendEmail" href="#">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+              Send via Email
+            </a>
+          </div>
+          <div class="form-status" id="contactStatus" role="status" aria-live="polite"></div>
+          <p class="form-note" style="margin-top:14px">Your message opens in WhatsApp or your email app — nothing is stored on this website.</p>
+        </form>
+      </div>
+      <div>
+        <div class="card reveal reveal-d1" style="padding:32px;margin-bottom:20px">
+          <h2 class="h3" style="font-size:17px;margin-bottom:10px">Contact information</h2>
+          <div class="info-row">
+            <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg></div>
+            <div><h4>Phone</h4><p><a href="tel:+254112863252">+254 112 863 252</a></p></div>
+          </div>
+          <div class="info-row">
+            <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div>
+            <div><h4>Email</h4><p><a href="mailto:admin@mugobyte.com">admin@mugobyte.com</a></p></div>
+          </div>
+          <div class="info-row">
+            <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+            <div><h4>Location</h4><p>Nairobi, Kenya — serving clients across East Africa</p></div>
+          </div>
+          <div class="info-row">
+            <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+            <div><h4>Business Hours</h4><p>Monday – Saturday · 8:00 AM – 6:00 PM EAT</p></div>
+          </div>
+        </div>
+        <div class="reveal reveal-d2">
+          <h2 class="h3" style="font-size:17px;margin-bottom:16px">Frequently asked questions</h2>
+          <div class="faq">
+            <div class="faq-item">
+              <button class="faq-q" aria-expanded="false">How long does a website take to build?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+              <div class="faq-a"><p>Most standard websites are completed within 7–14 days. Complex web applications, e-commerce sites or custom systems may take 3–6 weeks depending on features and requirements.</p></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" aria-expanded="false">Does MBT provide hosting for all projects?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+              <div class="faq-a"><p>Yes. MBT provides fully managed hosting on our own infrastructure for client websites and systems — performance, security and monitoring included, with a 99.9% uptime target.</p></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" aria-expanded="false">Is the MBT POS System available for small shops?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+              <div class="faq-a"><p>Absolutely. The MBT POS System works for businesses of all sizes — from small kiosks to large supermarkets and wholesalers. Pricing is flexible to match your scale.</p></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q" aria-expanded="false">How does MBT support clients after delivery?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+              <div class="faq-a"><p>Ongoing technical support Monday–Saturday. Hosted projects include server monitoring, security updates and bug fixes. Premium support packages with faster response times are also available.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
