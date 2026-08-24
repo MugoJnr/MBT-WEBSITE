@@ -84,23 +84,136 @@
 }
 </script>
 <section class="hero">
-  <div class="container hero-inner">
-    <img class="hero-mark" src="/assets/img/logo.webp" alt="MugoByte Technologies logo" width="92" height="50">
-    <h1 class="h1">Technology that works<br>as hard as <span class="accent">you do</span></h1>
-    <p class="lede">MugoByte Technologies builds and hosts practical software for Kenyan businesses — point of sale, farm management, automated trading and the web infrastructure behind them.</p>
-    <div class="hero-actions">
-      <a class="btn btn-primary" href="/contact">Start a Project</a>
-      <a class="btn btn-secondary" href="/services">Explore Services</a>
-      <a class="btn btn-gold" href="https://trading.mugobyte.com" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-        Trading Dashboard
-      </a>
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="hero-badge"><i></i>SOFTWARE · AUTOMATION · GROWTH</div>
+        <h1 class="h1">Technology that<br>works as hard as<br><span class="accent">you do</span></h1>
+        <p class="lede">MugoByte Technologies builds practical software for Kenyan businesses — from POS and farm management to automated trading systems and the web infrastructure behind them.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="/contact">
+            Start a Project
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-glass" href="/services">Explore Services</a>
+          <a class="btn btn-gold" href="https://trading.mugobyte.com" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+            Trading Dashboard
+          </a>
+        </div>
+      </div>
+      <div class="hero-visual" role="img" aria-label="Illustration of MugoByte products: a business management dashboard on a laptop, the MBT trading app on a smartphone, and an MBT POS terminal confirming a payment">
+        <div class="device-platform" aria-hidden="true"></div>
+        <!-- Laptop: MBT business dashboard -->
+        <div class="laptop" aria-hidden="true">
+          <div class="laptop-screen">
+            <div class="lap-ui">
+              <div class="lap-side">
+                <div class="lap-logo"><i></i>MugoByte</div>
+                <div class="lap-nav">
+                  <span class="on"><i></i>Overview</span>
+                  <span><i></i>Sales</span>
+                  <span><i></i>Products</span>
+                  <span><i></i>Reports</span>
+                  <span><i></i>Settings</span>
+                </div>
+              </div>
+              <div class="lap-main">
+                <div class="lap-title">Overview</div>
+                <div class="lap-metrics">
+                  <div class="lap-metric"><b>KES 284K <em>↑</em></b><span>Total Sales</span></div>
+                  <div class="lap-metric"><b>1,847</b><span>Transactions</span></div>
+                  <div class="lap-metric"><b>362</b><span>Customers</span></div>
+                </div>
+                <svg class="lap-chart" viewBox="0 0 300 90" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="lapFill" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="rgba(76,194,255,0.28)"/>
+                      <stop offset="100%" stop-color="rgba(76,194,255,0)"/>
+                    </linearGradient>
+                  </defs>
+                  <path d="M0,70 30,62 60,66 90,50 120,55 150,40 180,46 210,30 240,36 270,20 300,26 L300,90 0,90 Z" fill="url(#lapFill)"/>
+                  <path d="M0,70 30,62 60,66 90,50 120,55 150,40 180,46 210,30 240,36 270,20 300,26" fill="none" stroke="#4cc2ff" stroke-width="1.6"/>
+                </svg>
+                <div class="lap-rows">
+                  <div class="lap-row"><i></i>Maize Flour 2kg<b>48</b><span class="badge ok">Paid</span></div>
+                  <div class="lap-row"><i></i>Cooking Oil 1L<b>32</b><span class="badge ok">Paid</span></div>
+                  <div class="lap-row"><i></i>Sugar 2kg<b>15</b><span class="badge warn">Credit</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="laptop-base"></div>
+        </div>
+        <!-- Smartphone: MBT Trading -->
+        <div class="phone" aria-hidden="true">
+          <div class="phone-screen">
+            <div class="ph-app">MugoByte Trading</div>
+            <div class="ph-bal"><span>Performance</span><b>+$1,284 <em>▲ 4.2%</em></b></div>
+            <svg class="ph-chart" viewBox="0 0 100 110" preserveAspectRatio="none" aria-hidden="true">
+              <g stroke-width="4">
+                <line x1="10" y1="78" x2="10" y2="92" stroke="#34d399"/>
+                <line x1="24" y1="70" x2="24" y2="88" stroke="#f87171"/>
+                <line x1="38" y1="60" x2="38" y2="80" stroke="#34d399"/>
+                <line x1="52" y1="52" x2="52" y2="74" stroke="#34d399"/>
+                <line x1="66" y1="44" x2="66" y2="66" stroke="#f87171"/>
+                <line x1="80" y1="30" x2="80" y2="56" stroke="#34d399"/>
+                <line x1="92" y1="22" x2="92" y2="46" stroke="#34d399"/>
+              </g>
+              <g stroke-width="1.4">
+                <line x1="10" y1="82" x2="10" y2="88" stroke="#34d399"/>
+                <line x1="24" y1="74" x2="24" y2="84" stroke="#f87171"/>
+                <line x1="38" y1="64" x2="38" y2="76" stroke="#34d399"/>
+                <line x1="52" y1="56" x2="52" y2="70" stroke="#34d399"/>
+                <line x1="66" y1="48" x2="66" y2="62" stroke="#f87171"/>
+                <line x1="80" y1="34" x2="80" y2="52" stroke="#34d399"/>
+                <line x1="92" y1="26" x2="92" y2="42" stroke="#34d399"/>
+              </g>
+            </svg>
+            <div class="ph-times"><i class="on">1H</i><i>1D</i><i>1W</i><i>1M</i></div>
+          </div>
+        </div>
+        <!-- POS terminal -->
+        <div class="pos" aria-hidden="true">
+          <div class="pos-body">
+            <div class="pos-screen">
+              <div class="pos-check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m2 6 3 3 5-6"/></svg></div>
+              <div class="pos-brand">MugoByte POS</div>
+              <div class="pos-status">Payment Successful</div>
+              <div class="pos-amount">KES 2,450</div>
+            </div>
+            <div class="pos-pad">
+              <i></i><i></i><i></i>
+              <i></i><i></i><i></i>
+              <i></i><i></i><i class="green"></i>
+            </div>
+          </div>
+        </div>
+        <div class="visual-note">Illustrative MugoByte product interfaces</div>
+      </div>
     </div>
-    <div class="hero-stats">
-      <div class="hero-stat"><b><span data-count="20" data-suffix="+">0</span></b><span>Projects Delivered</span></div>
-      <div class="hero-stat"><b><span data-count="99.9" data-suffix="%">0</span></b><span>Hosting Uptime</span></div>
-      <div class="hero-stat"><b><span data-count="15" data-suffix="+">0</span></b><span>Clients Served</span></div>
-      <div class="hero-stat"><b><span data-count="2" data-suffix="+">0</span></b><span>Years in Business</span></div>
+  </div>
+</section>
+
+<section class="stats-row">
+  <div class="container">
+    <div class="stats-panel reveal">
+      <div class="stat-cell">
+        <div class="stat-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m7.5 4.7 9 4.6M21 12l-9 9-9-9 9-9 9 9ZM5 12h6.5M12 3v9"/></svg></div>
+        <div><b><span data-count="20" data-suffix="+">0</span></b><span>Projects Delivered</span></div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-ic green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 3 4.5 6v5c0 4.7 3.2 8.3 7.5 10 4.3-1.7 7.5-5.3 7.5-10V6L12 3Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <div><b><span data-count="99.9" data-suffix="%">0</span></b><span>Hosting Uptime</span></div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 5a3.5 3.5 0 0 1 0 7m5.5 8a6.5 6.5 0 0 0-4.5-6.2"/></svg></div>
+        <div><b><span data-count="15" data-suffix="+">0</span></b><span>Clients Served</span></div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-ic gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <div><b><span data-count="2" data-suffix="+">0</span></b><span>Years in Business</span></div>
+      </div>
     </div>
   </div>
 </section>
