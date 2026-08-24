@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://mugobyte.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://mugobyte.com/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://mugobyte.com/assets/img/logo.webp</image:loc>
+      <image:title>MugoByte Technologies Logo</image:title>
+      <image:caption>Official logo of MugoByte Technologies (MBT), Kenya</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://mugobyte.com/assets/img/pos.webp</image:loc>
+      <image:title>MBT POS System</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://mugobyte.com/assets/img/farm.webp</image:loc>
+      <image:title>MBT Farm Record Management System</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://mugobyte.com/assets/img/trading.webp</image:loc>
+      <image:title>MBT AI Trading Bot</image:title>
+    </image:image>
+  </url>
   <url><loc>https://mugobyte.com/services</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://mugobyte.com/pos</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://mugobyte.com/farm</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
