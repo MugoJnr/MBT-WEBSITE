@@ -55,14 +55,16 @@
   function runCounter(el) {
     var target = parseFloat(el.dataset.count);
     var suffix = el.dataset.suffix || "";
-    if (reduced) { el.textContent = target + suffix; return; }
+    var decimals = (String(el.dataset.count).split(".")[1] || "").length;
+    function fmt(v) { return v.toFixed(decimals) + suffix; }
+    if (reduced) { el.textContent = fmt(target); return; }
     var start = null;
     var dur = 1200;
     function step(ts) {
       if (!start) start = ts;
       var p = Math.min((ts - start) / dur, 1);
       var eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = Math.round(target * eased) + suffix;
+      el.textContent = fmt(target * eased);
       if (p < 1) requestAnimationFrame(step);
     }
     requestAnimationFrame(step);
