@@ -10,6 +10,8 @@ const nav = read("partials/nav.html");
 const footer = read("partials/footer.html");
 
 const SITE_URL = "https://mugobyte.com";
+// Bump on every CSS/JS change so visitors get fresh assets immediately.
+const ASSET_VER = new Date().toISOString().slice(0, 19).replaceAll(/[-:T]/g, "");
 
 // Every route in one place — single source of truth for titles/descriptions.
 const pages = [
@@ -80,6 +82,7 @@ ${head
   .replaceAll("{{CANONICAL}}", canonical)
   .replaceAll("{{ROBOTS}}", robots)
   .replaceAll("{{OG_TYPE}}", page.file === "home" ? "website" : "website")
+  .replaceAll("{{VER}}", ASSET_VER)
 }
 <body>
 ${nav}
@@ -87,7 +90,7 @@ ${nav}
 ${body}
 </main>
 ${footer}
-<script src="/assets/js/main.js" defer></script>
+<script src="/assets/js/main.js?v=${ASSET_VER}" defer></script>
 </body>
 </html>
 `;
