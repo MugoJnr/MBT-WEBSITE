@@ -1,4 +1,4 @@
-// MBT website build — assembles pages from shared partials + central data.
+// MBT website build | assembles pages from shared partials + central data.
 // Zero dependencies. Run: node build.mjs
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
@@ -30,7 +30,7 @@ function renderNav() {
     .join("\n");
   return `<header class="nav" id="navbar">
   <div class="nav-inner">
-    <a class="nav-brand" href="/" aria-label="MugoByte Technologies — Home">
+    <a class="nav-brand" href="/" aria-label="MugoByte Technologies | Home">
       <img src="/assets/img/mugobyte-logo.webp" alt="MugoByte Technologies logo" width="118" height="46">
     </a>
     <nav class="nav-links" aria-label="Primary">
@@ -66,10 +66,10 @@ function renderFooter() {
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="/" aria-label="MugoByte Technologies — Home">
+        <a href="/" aria-label="MugoByte Technologies | Home">
           <img src="/assets/img/mugobyte-logo.webp" alt="MugoByte Technologies logo" width="123" height="48" loading="lazy">
         </a>
-        <p>Practical software for Kenyan businesses — built, hosted and supported by the people who made it.</p>
+        <p>Practical software for Kenyan businesses | built, hosted and supported by the people who made it.</p>
         <div class="social-row" style="margin-top:18px">
 ${socials}
         </div>
@@ -104,7 +104,7 @@ ${socials}
         <p class="newsletter-status" id="newsletterStatus" role="status" aria-live="polite"></p>
         <div class="footer-contact">
           <b>Call Us</b>
-          <span>${company.phone} · Mon–Sat, 8AM–6PM EAT</span>
+          <span>${company.phone} · Mon to Sat, 8AM to 6PM EAT</span>
         </div>
       </div>
     </div>
@@ -164,47 +164,47 @@ function renderFaqs() {
 const pages = [
   {
     slug: "", file: "home",
-    title: "MugoByte Technologies (MBT) — Software, Hosting & AI Systems in Kenya",
+    title: "MugoByte Technologies (MBT) | Software, Hosting & AI Systems in Kenya",
     desc: "MBT builds and hosts practical software for Kenyan businesses: the MBT POS System, Farm Management System, AI Trading Bot, web development and managed cloud hosting.",
   },
   {
     slug: "services", file: "services",
-    title: "Services — Web Development, Cloud Hosting & AI Systems | MugoByte",
+    title: "Services | Web Development, Cloud Hosting & AI Systems | MugoByte",
     desc: "Website design and development, MBT-managed cloud hosting, business software, farm systems, AI development, automation and technical support for Kenyan businesses.",
   },
   {
     slug: "pos", file: "pos",
-    title: "MugoByte POS — Point of Sale & Business Management | MugoByte",
+    title: "MugoByte POS | Point of Sale & Business Management | MugoByte",
     desc: "The MugoByte POS System handles sales, inventory, receipts, reports and staff accounts for shops, supermarkets, pharmacies and restaurants. Request a demo.",
   },
   {
     slug: "farm", file: "farm",
     title: "MBT Farm Record Management System for Dairy Farmers | MugoByte",
-    desc: "Digital record keeping for dairy farms: livestock registers, milk production, vaccination reminders, feed inventory and farm finances — replacing paper records.",
+    desc: "Digital record keeping for dairy farms: livestock registers, milk production, vaccination reminders, feed inventory and farm finances | replacing paper records.",
   },
   {
     slug: "trading", file: "trading",
-    title: "MBT AI Trading Bot — Automated Crypto & Gold Trading | MugoByte",
+    title: "MBT AI Trading Bot | Automated Crypto & Gold Trading | MugoByte",
     desc: "A 24/7 automated trading system for crypto and gold markets with multi-strategy analysis and built-in risk management. Live dashboard for authorised users.",
   },
   {
     slug: "ceo", file: "ceo",
-    title: "Eugene Mugo — Founder & CEO of MugoByte Technologies",
+    title: "Eugene Mugo | Founder & CEO of MugoByte Technologies",
     desc: "Eugene Mugo founded MBT to build practical, reliable software for Kenya. Self-taught developer behind the MBT POS System, Farm System and AI Trading Bot.",
   },
   {
     slug: "about", file: "about",
-    title: "About MBT — Our Story, Values & Infrastructure | MugoByte Technologies",
-    desc: "MBT is a Kenya-based technology company building and hosting its own systems since 2023 — from POS and farm management to AI trading infrastructure.",
+    title: "About MBT | Our Story, Values & Infrastructure | MugoByte Technologies",
+    desc: "MBT is a Kenya-based technology company building and hosting its own systems since 2023 | from POS and farm management to AI trading infrastructure.",
   },
   {
     slug: "contact", file: "contact",
-    title: "Contact MBT — Start a Project or Ask a Question | MugoByte",
+    title: "Contact MBT | Start a Project or Ask a Question | MugoByte",
     desc: "Talk to MugoByte Technologies about your project. Phone +254 112 863 252, email admin@mugobyte.com. We respond within one business day.",
   },
   {
     slug: "support", file: "support",
-    title: "Support MBT — Keep Free Tools Like ExamHub Running | MugoByte",
+    title: "Support MBT | Keep Free Tools Like ExamHub Running | MugoByte",
     desc: "Optional contributions help MBT cover hosting and development costs for free tools like ExamHub Kenya. Support via M-Pesa or get in touch.",
   },
   {

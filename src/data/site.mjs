@@ -12,8 +12,8 @@ export const company = {
   phoneHref: "tel:+254112863252",
   whatsapp: "https://wa.me/254112863252",
   email: "admin@mugobyte.com",
-  location: "Nairobi, Kenya — serving clients across East Africa",
-  hours: "Monday – Saturday · 8:00 AM – 6:00 PM EAT",
+  location: "Nairobi, Kenya, serving clients across East Africa",
+  hours: "Monday to Saturday, 8:00 AM to 6:00 PM EAT",
   socials: [
     { name: "Instagram", href: "https://www.instagram.com/mugobyte/", icon: "instagram" },
     { name: "WhatsApp", href: "https://wa.me/254112863252", icon: "whatsapp" },
@@ -45,7 +45,7 @@ export const products = [
     shortName: "POS",
     tagline: "Point of sale for Kenyan retail",
     description:
-      "Sales, stock, receipts, staff and reports in one system — on your phone or computer, backed up to the cloud.",
+      "Sales, stock, receipts, staff and reports in one system, on your phone or computer, with everything backed up to the cloud.",
     tags: ["Inventory", "Receipts", "Reports"],
     href: "/pos",
     image: "/assets/img/pos.webp",
@@ -109,18 +109,18 @@ export const services = [
 export const faqs = [
   {
     q: "How long does a website take to build?",
-    a: "Most standard websites are completed within 7–14 days. Complex web applications, e-commerce sites or custom systems may take 3–6 weeks depending on features and requirements.",
+    a: "Most standard websites are completed within 7 to 14 days. Complex web applications, e-commerce sites or custom systems may take 3 to 6 weeks depending on features and requirements.",
   },
   {
     q: "Does MBT provide hosting for all projects?",
-    a: "Yes. MBT provides fully managed hosting on our own infrastructure for client websites and systems — performance, security and monitoring included, with a 99.9% uptime target.",
+    a: "Yes. MBT provides fully managed hosting on our own infrastructure for client websites and systems. Performance, security and monitoring are included, with a 99.9% uptime target.",
   },
   {
     q: "Is the MBT POS System available for small shops?",
-    a: "Absolutely. The MBT POS System works for businesses of all sizes — from small kiosks to large supermarkets and wholesalers. Pricing is flexible to match your scale.",
+    a: "Absolutely. The MBT POS System works for businesses of all sizes, from small kiosks to large supermarkets and wholesalers. Pricing is flexible to match your scale.",
   },
   {
     q: "How does MBT support clients after delivery?",
-    a: "Ongoing technical support Monday–Saturday. Hosted projects include server monitoring, security updates and bug fixes. Premium support packages with faster response times are also available.",
+    a: "Ongoing technical support Monday to Saturday. Hosted projects include server monitoring, security updates and bug fixes. Premium support packages with faster response times are also available.",
   },
 ];
