@@ -23,10 +23,11 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/main.css?v=20260824220509">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/main.css?v=20260825033414">
+<script>document.documentElement.classList.add("js");</script>
 </head>
 
 <body>
@@ -53,16 +54,15 @@
 <div class="mobile-menu" id="mobileMenu">
   <a class="mobile-link" href="/" data-page="home">Home</a>
   <a class="mobile-link" href="/services" data-page="services">Services</a>
-  <a class="mobile-link" href="/pos" data-page="pos">MBT POS System</a>
-  <a class="mobile-link" href="/farm" data-page="farm">Farm Management</a>
-  <a class="mobile-link" href="/trading" data-page="trading">AI Trading Bot</a>
-  <a class="mobile-link" href="/about" data-page="about">About MBT</a>
-  <a class="mobile-link" href="https://portal.mugobyte.com" target="_blank" rel="noopener">Portal ↗</a>
+  <a class="mobile-link" href="/pos" data-page="pos">POS</a>
+  <a class="mobile-link" href="/farm" data-page="farm">Farm</a>
+  <a class="mobile-link" href="/trading" data-page="trading">Trading</a>
+  <a class="mobile-link" href="/about" data-page="about">About</a>
   <a class="mobile-link" href="/ceo" data-page="ceo">Leadership</a>
   <a class="mobile-link" href="/support" data-page="support">Support MBT</a>
+  <a class="mobile-link" href="https://portal.mugobyte.com" target="_blank" rel="noopener">Portal ↗</a>
   <a class="btn btn-primary mobile-cta" href="/contact">Get in Touch</a>
 </div>
-
 <main>
 <section class="page-hero">
   <div class="container">
@@ -81,31 +81,31 @@
     </div>
     <div class="grid-4">
       <a class="card hoverable card-link reveal" href="/pos" style="padding:0;overflow:hidden">
-        <div class="product-media" style="border:none;border-radius:0;aspect-ratio:1"><img src="/assets/img/pos.webp" alt="MBT POS System" width="512" height="512" loading="lazy"></div>
+        <div class="product-media" style="border:none;border-radius:0;aspect-ratio:1"><img src="/assets/img/pos.webp" alt="MugoByte POS" width="512" height="512" loading="lazy"></div>
         <div style="padding:18px 20px 22px">
-          <h3 style="font-size:15.5px">MBT POS System</h3>
+          <h3 style="font-size:15.5px">MugoByte POS</h3>
           <p style="font-size:13px">Point of sale for Kenyan retail</p>
         </div>
       </a>
       <a class="card hoverable card-link reveal reveal-d1" href="/farm" style="padding:0;overflow:hidden">
-        <div class="product-media" style="border:none;border-radius:0;aspect-ratio:1"><img src="/assets/img/farm.webp" alt="MBT Farm Management System" width="512" height="512" loading="lazy"></div>
+        <div class="product-media" style="border:none;border-radius:0;aspect-ratio:1"><img src="/assets/img/farm.webp" alt="Farm Management" width="512" height="512" loading="lazy"></div>
         <div style="padding:18px 20px 22px">
           <h3 style="font-size:15.5px">Farm Management</h3>
-          <p style="font-size:13px">Livestock, milk &amp; farm finance records</p>
+          <p style="font-size:13px">Farm records without paper</p>
         </div>
       </a>
       <a class="card hoverable card-link reveal reveal-d2" href="/trading" style="padding:0;overflow:hidden">
-        <div class="product-media" style="border:none;border-radius:0;aspect-ratio:1"><img src="/assets/img/trading.webp" alt="MBT AI Trading Bot" width="512" height="512" loading="lazy"></div>
+        <div class="product-media" style="border:none;border-radius:0;aspect-ratio:1"><img src="/assets/img/trading.webp" alt="AI Trading Bot" width="512" height="512" loading="lazy"></div>
         <div style="padding:18px 20px 22px">
           <h3 style="font-size:15.5px">AI Trading Bot</h3>
-          <p style="font-size:13px">Automated crypto &amp; gold trading</p>
+          <p style="font-size:13px">Automated crypto & gold trading</p>
         </div>
       </a>
       <a class="card hoverable card-link reveal reveal-d3" href="https://examhub-kenya.pages.dev" target="_blank" rel="noopener" style="padding:0;overflow:hidden">
         <div class="product-media" style="border:none;border-radius:0;aspect-ratio:1"><img src="/assets/img/examhub.webp" alt="ExamHub Kenya" width="512" height="512" loading="lazy"></div>
         <div style="padding:18px 20px 22px">
           <h3 style="font-size:15.5px">ExamHub Kenya</h3>
-          <p style="font-size:13px">Free revision platform for students</p>
+          <p style="font-size:13px">Free study platform for students</p>
         </div>
       </a>
     </div>
@@ -212,21 +212,17 @@
         <a href="/" aria-label="MugoByte Technologies — Home">
           <img src="/assets/img/mugobyte-logo.webp" alt="MugoByte Technologies logo" width="123" height="48" loading="lazy">
         </a>
-        <p>Intelligent digital solutions for businesses, farms and financial systems. Built in Kenya. Scaled for Africa.</p>
+        <p>Practical software for Kenyan businesses — built, hosted and supported by the people who made it.</p>
         <div class="social-row" style="margin-top:18px">
-          <a class="social-btn" href="https://www.instagram.com/mugobyte/" target="_blank" rel="noopener" aria-label="MugoByte on Instagram" title="Instagram">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
-          </a>
-          <a class="social-btn" href="https://wa.me/254112863252" target="_blank" rel="noopener" aria-label="Chat with MBT on WhatsApp" title="WhatsApp">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Z"/><path d="M8.7 9.2c0 3.2 2.9 6.1 6.1 6.1l1.5-1.5-1.9-1.3-1 .6a4.4 4.4 0 0 1-2.5-2.5l.6-1-1.3-1.9-1.5 1.5Z" fill="currentColor" stroke="none"/></svg>
-          </a>
+          <a class="social-btn" href="https://www.instagram.com/mugobyte/" target="_blank" rel="noopener" aria-label="MugoByte Technologies on Instagram" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+          <a class="social-btn" href="https://wa.me/254112863252" target="_blank" rel="noopener" aria-label="MugoByte Technologies on WhatsApp" title="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Z"/><path d="M8.7 9.2c0 3.2 2.9 6.1 6.1 6.1l1.5-1.5-1.9-1.3-1 .6a4.4 4.4 0 0 1-2.5-2.5l.6-1-1.3-1.9-1.5 1.5Z" fill="currentColor" stroke="none"/></svg></a>
         </div>
       </div>
       <div>
         <h4>Products</h4>
         <div class="footer-links">
-          <a href="/pos">MBT POS System</a>
-          <a href="/farm">Farm Management System</a>
+          <a href="/pos">MugoByte POS</a>
+          <a href="/farm">Farm Management</a>
           <a href="/trading">AI Trading Bot</a>
           <a href="https://examhub-kenya.pages.dev" target="_blank" rel="noopener">ExamHub Kenya</a>
         </div>
@@ -245,7 +241,7 @@
         <h4>Stay Updated</h4>
         <p>Occasional news on new MBT products and updates. No spam.</p>
         <form class="newsletter-form" id="newsletterForm" novalidate>
-          <label class="sr-only" for="newsletterEmail" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Email address</label>
+          <label for="newsletterEmail" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Email address</label>
           <input class="input" type="email" id="newsletterEmail" name="email" placeholder="you@email.com" autocomplete="email" required>
           <button type="submit" class="btn btn-primary btn-sm">Subscribe</button>
         </form>
@@ -262,7 +258,6 @@
     </div>
   </div>
 </footer>
-
-<script src="/assets/js/main.js?v=20260824220509" defer></script>
+<script src="/assets/js/main.js?v=20260825033414" defer></script>
 </body>
 </html>

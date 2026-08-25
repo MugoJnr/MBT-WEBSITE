@@ -19,13 +19,18 @@
   ]
 }
 </script>
+
 <section class="hero">
   <div class="container">
     <div class="hero-grid">
       <div class="hero-copy">
         <div class="hero-badge"><i></i>SOFTWARE · AUTOMATION · GROWTH</div>
-        <h1 class="h1">Technology that<br>works as hard as<br><span class="accent">you do</span></h1>
-        <p class="lede">MugoByte Technologies builds practical software for Kenyan businesses — from POS and farm management to automated trading systems and the web infrastructure behind them.</p>
+        <h1 class="h1">
+          <span class="line-mask">Technology that</span>
+          <span class="line-mask d1">works as hard as</span>
+          <span class="line-mask d2"><span class="accent">you do</span></span>
+        </h1>
+        <p class="lede">We build software for businesses that need their systems to simply work — point of sale, farm records, automated trading, and the hosting behind them.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="/contact">
             Start a Project
@@ -40,7 +45,6 @@
       </div>
       <div class="hero-visual" role="img" aria-label="Illustration of MugoByte products: a business management dashboard on a laptop, the MBT trading app on a smartphone, and an MBT POS terminal confirming a payment">
         <div class="device-platform" aria-hidden="true"></div>
-        <!-- Laptop: MBT business dashboard -->
         <div class="laptop" aria-hidden="true">
           <div class="laptop-screen">
             <div class="lap-ui">
@@ -81,7 +85,6 @@
           </div>
           <div class="laptop-base"></div>
         </div>
-        <!-- Smartphone: MBT Trading -->
         <div class="phone" aria-hidden="true">
           <div class="phone-screen">
             <div class="ph-app">MugoByte Trading</div>
@@ -109,7 +112,6 @@
             <div class="ph-times"><i class="on">1H</i><i>1D</i><i>1W</i><i>1M</i></div>
           </div>
         </div>
-        <!-- POS terminal -->
         <div class="pos" aria-hidden="true">
           <div class="pos-body">
             <div class="pos-screen">
@@ -154,68 +156,118 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="products">
   <div class="container">
-    <div class="section-head center reveal">
-      <div class="eyebrow">What We Build</div>
-      <h2 class="h2">Software businesses actually use</h2>
-      <p class="lede">Every MBT product started as a real problem a real customer was facing. That is still how we choose what to build.</p>
+    <div class="section-head reveal">
+      <div class="eyebrow">Products</div>
+      <h2 class="h2">Built for work that happens every day</h2>
+      <p class="lede">Each MugoByte product started as a real problem someone was paying to solve by hand. That is still how we choose what to build.</p>
     </div>
-    <div class="grid-3">
-      <a class="card hoverable card-link reveal" href="/pos">
-        <div class="icon-tile gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M3 9 5 3h14l2 6M3 9h18M3 9v11a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V9M9 13h6"/></svg></div>
-        <h3>MBT POS System</h3>
-        <p>Point of sale and business management for shops, supermarkets, pharmacies and restaurants — sales, stock and reports in one place.</p>
-        <div class="tag-row"><span class="tag">Inventory</span><span class="tag">Receipts</span><span class="tag">Reports</span></div>
+
+    <!-- POS — real application screenshot, scroll story -->
+    <div class="product-story" data-story>
+      <div class="story-copy">
+        <div class="eyebrow">MugoByte POS</div>
+        <h3>Run your shop without fighting your software.</h3>
+        <p>Sell, track stock, record payments and know exactly what happened today. MugoByte POS runs on the phone or computer you already own and keeps everything backed up to the cloud.</p>
+        <ul class="story-points">
+          <li><b>Inventory</b> See what is available and what is running out.</li>
+          <li><b>Payments</b> Cash, M-Pesa and credit — recorded properly.</li>
+          <li><b>Reports</b> Daily totals, profit and your best-selling items.</li>
+        </ul>
+        <div style="margin-top:28px"><a class="btn btn-glass btn-sm" href="/pos">Explore MugoByte POS<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="width:15px;height:15px"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></div>
+      </div>
+      <div class="story-media">
+        <div class="story-shot-frame" data-story-shot>
+          <img class="story-shot" src="/assets/img/pos-app.webp" alt="MugoByte POS point of sale screen showing a product grid and an open sale with payment details" width="1218" height="767" loading="lazy">
+        </div>
+      </div>
+    </div>
+
+    <!-- Farm -->
+    <div class="product-story flip" data-story>
+      <div class="story-copy">
+        <div class="eyebrow">Farm Management</div>
+        <h3>Your farm records, without the notebook.</h3>
+        <p>Built with dairy farmers, not for an imaginary farm. Livestock, milk production, vaccination dates and farm finances — recorded once, remembered forever, with reminders sent to your phone.</p>
+        <ul class="story-points">
+          <li><b>Livestock</b> Every animal, tagged and tracked.</li>
+          <li><b>Milk</b> Morning and evening records, per cow.</li>
+          <li><b>Alerts</b> Vaccinations and calving dates, on time.</li>
+        </ul>
+        <div style="margin-top:28px"><a class="btn btn-glass btn-sm" href="/farm">Explore Farm System<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="width:15px;height:15px"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></div>
+      </div>
+      <div class="story-media reveal">
+        <img class="story-shot" src="/assets/img/farm.webp" alt="MBT Farm Record Management System" width="512" height="512" loading="lazy" style="max-width:420px;margin:0 auto">
+      </div>
+    </div>
+
+    <!-- Trading -->
+    <div class="product-story" data-story>
+      <div class="story-copy">
+        <div class="eyebrow">AI Trading Bot</div>
+        <h3>Markets never sleep. Neither does the bot.</h3>
+        <p>An automated trading system that watches crypto and gold markets around the clock and trades according to configured strategies, with hard limits on how much it can risk.</p>
+        <ul class="story-points">
+          <li><b>Markets</b> Bitcoin, Ethereum, gold and forex pairs.</li>
+          <li><b>Strategies</b> Trend, scalping, swing and mean reversion.</li>
+          <li><b>Risk</b> Daily loss limits and an emergency stop.</li>
+        </ul>
+        <div style="margin-top:28px;display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn btn-gold btn-sm" href="/trading">Explore AI Trading Bot</a>
+          <a class="btn btn-secondary btn-sm" href="https://trading.mugobyte.com" target="_blank" rel="noopener">Live Dashboard</a>
+        </div>
+      </div>
+      <div class="story-media reveal">
+        <img class="story-shot" src="/assets/img/trading.webp" alt="MBT AI Trading Bot" width="512" height="512" loading="lazy" style="max-width:420px;margin:0 auto">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-tight" style="padding-top:24px">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Services</div>
+      <h2 class="h2">And everything around the products</h2>
+    </div>
+    <div class="service-index reveal">
+      <a class="service-row" href="/services#web">
+        <span class="num">01</span>
+        <h3>Web Design &amp; Development</h3>
+        <p>Business sites, e-commerce and portals. Most finished within two weeks.</p>
+        <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span>
       </a>
-      <a class="card hoverable card-link reveal reveal-d1" href="/farm">
-        <div class="icon-tile green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 21V9m0 0C12 5 9 3 4 3c0 5 3 7 8 6Zm0 3c0-4 3-6 8-6 0 5-3 7-8 6Z"/></svg></div>
-        <h3>Farm Management</h3>
-        <p>Digital record keeping for dairy farmers — livestock registers, milk production, vaccination schedules and farm finances, without paper.</p>
-        <div class="tag-row"><span class="tag">Livestock</span><span class="tag">Milk Records</span><span class="tag">Alerts</span></div>
+      <a class="service-row" href="/services#hosting">
+        <span class="num">02</span>
+        <h3>Managed Cloud Hosting</h3>
+        <p>Our own servers, your system — SSL, backups and monitoring included.</p>
+        <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span>
       </a>
-      <a class="card hoverable card-link reveal reveal-d2" href="/trading">
-        <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8m0 0h-5m5 0v5"/></svg></div>
-        <h3>AI Trading Bot</h3>
-        <p>An automated trading system running 24/7 across crypto and gold markets, with multi-strategy analysis and built-in risk limits.</p>
-        <div class="tag-row"><span class="tag">Crypto</span><span class="tag">Gold</span><span class="tag">24/7</span></div>
+      <a class="service-row" href="/services">
+        <span class="num">03</span>
+        <h3>Business Software &amp; Automation</h3>
+        <p>Custom systems and integrations for how your industry actually works.</p>
+        <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span>
       </a>
-      <a class="card hoverable card-link reveal" href="/services#web">
-        <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9S14.5 18.4 12 21c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3Z"/></svg></div>
-        <h3>Web Development</h3>
-        <p>Fast, professional websites and web applications — from company sites and e-commerce to school systems and booking platforms.</p>
-        <div class="tag-row"><span class="tag">Business Sites</span><span class="tag">E-commerce</span><span class="tag">Portals</span></div>
-      </a>
-      <a class="card hoverable card-link reveal reveal-d1" href="/services#hosting">
-        <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M6.5 18a4.5 4.5 0 1 1 .9-8.9 6 6 0 0 1 11.6 1.6A3.8 3.8 0 0 1 18 18h-11.5Z"/><path d="M8.5 21l-1 1.5M12.5 21l-1 1.5M16.5 21l-1 1.5"/></svg></div>
-        <h3>Cloud Hosting</h3>
-        <p>Managed hosting on MBT-owned servers with SSL, daily backups and proactive monitoring — we run the infrastructure so you run the business.</p>
-        <div class="tag-row"><span class="tag">SSL</span><span class="tag">Backups</span><span class="tag">Monitoring</span></div>
-      </a>
-      <a class="card hoverable card-link reveal reveal-d2" href="https://examhub-kenya.pages.dev" target="_blank" rel="noopener">
-        <div class="icon-tile green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 6c-1.8-1.6-4.2-2-8-2v14c3.8 0 6.2.4 8 2 1.8-1.6 4.2-2 8-2V4c-3.8 0-6.2.4-8 2Zm0 0v14"/></svg></div>
-        <h3>ExamHub Kenya</h3>
-        <p>Our free study platform for Kenyan university students — past papers, notes and an AI study assistant. Built and maintained by MBT.</p>
-        <div class="tag-row"><span class="tag">Free Forever</span><span class="tag">All Universities</span></div>
+      <a class="service-row" href="/contact">
+        <span class="num">04</span>
+        <h3>Technical Support</h3>
+        <p>A real team, Monday to Saturday. The person who built it fixes it.</p>
+        <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span>
       </a>
     </div>
   </div>
 </section>
 
-<section class="section-tight">
+<section class="section">
   <div class="container">
     <div class="split">
       <div class="reveal">
         <div class="eyebrow">Why MBT</div>
         <h2 class="h2">We run the whole stack, so nothing is someone else's problem</h2>
         <p class="lede" style="margin-top:16px">MBT systems run on our own dedicated servers. Security, monitoring and maintenance are handled in-house — when something needs fixing, the person who built it is the person who fixes it.</p>
-        <ul class="feature-list" style="margin-top:24px">
-          <li><span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="m2 6 3 3 5-6"/></svg></span><span><strong>Own infrastructure</strong> — no third-party shared hosting for client systems</span></li>
-          <li><span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="m2 6 3 3 5-6"/></svg></span><span><strong>End-to-end security</strong> — SSL, backups, monitoring and intrusion detection</span></li>
-          <li><span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="m2 6 3 3 5-6"/></svg></span><span><strong>Support you can call</strong> — a real team, Monday to Saturday</span></li>
-          <li><span class="check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="m2 6 3 3 5-6"/></svg></span><span><strong>Built to scale</strong> — systems grow with your business, not against it</span></li>
-        </ul>
-        <div style="margin-top:28px"><a class="btn btn-secondary" href="/about">More About MBT</a></div>
+        <div style="margin-top:28px"><a class="btn btn-secondary btn-sm" href="/about">More About MBT</a></div>
       </div>
       <div class="reveal reveal-d1">
         <div class="mock" aria-hidden="true">
@@ -246,28 +298,15 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section-tight">
   <div class="container">
-    <div class="section-head center reveal">
-      <div class="eyebrow">Client Words</div>
-      <h2 class="h2">What clients say</h2>
-    </div>
-    <div class="grid-2" style="max-width:860px;margin:0 auto">
-      <div class="card testimonial reveal">
-        <blockquote>The MBT POS System has completely transformed how I run my business. Tracking stock, recording sales, and generating reports used to take hours — now it's all automatic. I can check everything on my phone even when I'm not at the shop.</blockquote>
-        <div class="testimonial-person">
-          <div class="avatar">EK</div>
-          <div><b>Edith Kanini</b><span>MBT POS User · Sagana</span></div>
-        </div>
-      </div>
-      <div class="card testimonial reveal reveal-d1">
-        <blockquote>Eugene and the MBT team have been instrumental in supporting our digital operations at Edmus. MBT builds systems that actually work — and they stand behind them.</blockquote>
-        <div class="testimonial-person">
-          <div class="avatar">MG</div>
-          <div><b>Moses Gatura</b><span>CEO · Edmus Organisation</span></div>
-        </div>
-      </div>
-    </div>
+    <figure class="reveal" style="max-width:820px;margin:0 auto;text-align:center">
+      <blockquote style="font-size:clamp(18px,2.4vw,26px);line-height:1.6;font-weight:500;color:var(--text);font-family:var(--font-display)">"The MBT POS System has completely transformed how I run my business. Tracking stock, recording sales and generating reports used to take hours — now it's all automatic. I can check everything on my phone even when I'm not at the shop."</blockquote>
+      <figcaption class="testimonial-person" style="justify-content:center;margin-top:26px">
+        <div class="avatar">EK</div>
+        <div style="text-align:left"><b>Edith Kanini</b><span>MugoByte POS User · Sagana</span></div>
+      </figcaption>
+    </figure>
   </div>
 </section>
 
@@ -275,8 +314,8 @@
   <div class="container">
     <div class="cta-band reveal">
       <div class="eyebrow" style="justify-content:center">Ready When You Are</div>
-      <h2 class="h2">Let's talk about what you need</h2>
-      <p>Tell us about your business and we'll give you an honest assessment — even if the answer is that you don't need custom software.</p>
+      <h2 class="h2">Tell us what you need. We'll tell you honestly what it takes.</h2>
+      <p>Even if the answer is that you don't need custom software.</p>
       <div class="btn-row">
         <a class="btn btn-primary" href="/contact">Get in Touch</a>
         <a class="btn btn-secondary" href="/services">View All Services</a>

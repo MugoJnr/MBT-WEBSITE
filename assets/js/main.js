@@ -48,6 +48,51 @@
       });
     }, { threshold: 0.12, rootMargin: "0px 0px -32px 0px" });
     revealEls.forEach(function (el) { obs.observe(el); });
+
+    /* Line-mask reveals for key headings */
+    var lines = document.querySelectorAll(".line-mask");
+    if (lines.length) {
+      var lObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            lObs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.4 });
+      lines.forEach(function (el) { lObs.observe(el); });
+    }
+  }
+
+  /* Scroll story: POS screenshot settles into place as it enters view.
+     GSAP is loaded from CDN only when the element exists and motion is allowed. */
+  var storyShot = document.querySelector("[data-story-shot]");
+  if (storyShot && !reduced) {
+    var s = document.createElement("script");
+    s.src = "https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js";
+    s.async = true;
+    s.onload = function () {
+      var t = document.createElement("script");
+      t.src = "https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js";
+      t.async = true;
+      t.onload = function () {
+        if (!window.gsap || !window.ScrollTrigger) return;
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.fromTo(storyShot,
+          { scale: 0.9, y: 70, rotate: 1.5 },
+          {
+            scale: 1, y: 0, rotate: 0, ease: "none",
+            scrollTrigger: {
+              trigger: storyShot.closest("[data-story]") || storyShot,
+              start: "top 92%",
+              end: "center 55%",
+              scrub: 1
+            }
+          });
+      };
+      document.head.appendChild(t);
+    };
+    document.head.appendChild(s);
   }
 
   /* Stat counters */

@@ -23,8 +23,8 @@
   --r-sm: 8px;
   --r-md: 12px;
   --r-lg: 16px;
-  --font-display: "Space Grotesk", system-ui, sans-serif;
-  --font-body: "Inter", system-ui, sans-serif;
+  --font-display: "Satoshi", "Space Grotesk", system-ui, sans-serif;
+  --font-body: "Satoshi", "Inter", system-ui, sans-serif;
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
   --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.35);
   --shadow-lift: 0 16px 44px rgba(0, 0, 0, 0.5);
@@ -888,12 +888,75 @@ select.input { appearance: auto; }
 .social-btn:hover { color: var(--accent); border-color: var(--accent); background: var(--accent-soft); }
 .social-btn svg { width: 17px; height: 17px; }
 
-/* ---------- Reveal on scroll ---------- */
-.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s var(--ease), transform 0.65s var(--ease); }
-.reveal.visible { opacity: 1; transform: none; }
+/* ---------- Reveal on scroll (JS-gated: content visible without JS) ---------- */
+.js .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s var(--ease), transform 0.65s var(--ease); }
+.js .reveal.visible { opacity: 1; transform: none; }
 .reveal-d1 { transition-delay: 0.08s; }
 .reveal-d2 { transition-delay: 0.16s; }
 .reveal-d3 { transition-delay: 0.24s; }
+
+/* ---------- Line reveal for key headings ---------- */
+.js .line-mask { display: block; overflow: hidden; }
+.js .line-mask > span { display: block; transform: translateY(110%); transition: transform 0.9s var(--ease); }
+.js .line-mask.visible > span { transform: none; }
+.js .line-mask.d1 > span { transition-delay: 0.1s; }
+.js .line-mask.d2 > span { transition-delay: 0.2s; }
+
+/* ---------- Cross-document view transitions (progressive) ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition { navigation: auto; }
+  ::view-transition-old(root) { animation: 200ms ease both vt-out; }
+  ::view-transition-new(root) { animation: 420ms var(--ease) both vt-in; }
+}
+@keyframes vt-out { to { opacity: 0; transform: scale(0.99); } }
+@keyframes vt-in { from { opacity: 0; transform: translateY(10px); } }
+
+/* ---------- Product story (editorial alternating rows) ---------- */
+.product-story {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+  padding: clamp(2.5rem, 6vw, 5rem) 0;
+}
+.product-story + .product-story { border-top: 1px solid var(--border); }
+.product-story.flip .story-media { order: 2; }
+.story-copy .eyebrow { margin-bottom: 12px; }
+.story-copy h3 { font-size: clamp(24px, 3vw, 34px); margin-bottom: 14px; }
+.story-copy > p { color: var(--muted); font-size: 16px; line-height: 1.7; max-width: 46ch; }
+.story-points { list-style: none; margin-top: 26px; display: grid; gap: 14px; }
+.story-points li { display: flex; gap: 12px; align-items: baseline; font-size: 15px; color: var(--muted); }
+.story-points li b { color: var(--text); font-weight: 600; min-width: 96px; }
+.story-media { position: relative; }
+.story-shot {
+  border-radius: var(--r-md);
+  border: 1px solid var(--border-strong);
+  box-shadow: var(--shadow-md);
+  width: 100%;
+  height: auto;
+  display: block;
+  background: #0a0f1c;
+}
+.story-shot-frame { will-change: transform; }
+
+/* ---------- Service index (list, not cards) ---------- */
+.service-index { border-top: 1px solid var(--border-strong); }
+.service-row {
+  display: grid;
+  grid-template-columns: 56px 1.2fr 1fr auto;
+  gap: 20px;
+  align-items: center;
+  padding: 22px 4px;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.2s, padding 0.25s var(--ease);
+}
+.service-row:hover { background: rgba(148, 163, 184, 0.04); padding-left: 12px; }
+.service-row .num { font-family: var(--font-display); font-size: 13px; color: var(--faint); }
+.service-row h3 { font-size: 17px; }
+.service-row p { font-size: 14px; color: var(--muted); }
+.service-row .arrow { color: var(--faint); transition: transform 0.25s var(--ease), color 0.2s; }
+.service-row .arrow svg { width: 18px; height: 18px; }
+.service-row:hover .arrow { transform: translateX(4px); color: var(--accent); }
 
 /* ---------- 404 ---------- */
 .error-page { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 24px; }
@@ -912,6 +975,10 @@ select.input { appearance: auto; }
   .stats-panel { grid-template-columns: repeat(2, 1fr); }
   .stat-cell:nth-child(3) { border-left: none; }
   .stat-cell:nth-child(n+3) { border-top: 1px solid var(--border); }
+  .product-story { grid-template-columns: 1fr; gap: 30px; }
+  .product-story.flip .story-media { order: 0; }
+  .service-row { grid-template-columns: 40px 1fr auto; }
+  .service-row p { display: none; }
 }
 
 @media (max-width: 768px) {
