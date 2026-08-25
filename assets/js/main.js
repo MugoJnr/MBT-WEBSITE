@@ -33,34 +33,48 @@
     });
   }
 
-  /* Reveal on scroll */
+  /* Reveal on scroll (defensive: if anything fails, content must stay visible) */
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var revealEls = document.querySelectorAll(".reveal");
-  if (reduced || !("IntersectionObserver" in window)) {
+  var lineEls = document.querySelectorAll(".line-mask");
+  function showAll() {
     revealEls.forEach(function (el) { el.classList.add("visible"); });
+    lineEls.forEach(function (el) { el.classList.add("visible"); });
+  }
+  if (reduced || !("IntersectionObserver" in window)) {
+    showAll();
   } else {
-    var obs = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          obs.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: "0px 0px -32px 0px" });
-    revealEls.forEach(function (el) { obs.observe(el); });
-
-    /* Line-mask reveals for key headings */
-    var lines = document.querySelectorAll(".line-mask");
-    if (lines.length) {
-      var lObs = new IntersectionObserver(function (entries) {
+    try {
+      var obs = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
             entry.target.classList.add("visible");
-            lObs.unobserve(entry.target);
+            obs.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.4 });
-      lines.forEach(function (el) { lObs.observe(el); });
+      }, { threshold: 0.12, rootMargin: "0px 0px -32px 0px" });
+      revealEls.forEach(function (el) { obs.observe(el); });
+
+      /* Line-mask reveals for key headings */
+      if (lineEls.length) {
+        var lObs = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              lObs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.4 });
+        lineEls.forEach(function (el) { lObs.observe(el); });
+      }
+      /* Safety net: never leave content hidden */
+      setTimeout(function () {
+        document.querySelectorAll(".reveal:not(.visible), .line-mask:not(.visible)").forEach(function (el) {
+          el.classList.add("visible");
+        });
+      }, 4000);
+    } catch (e) {
+      showAll();
     }
   }
 
@@ -144,6 +158,13 @@
       }
     });
   });
+  /* Keep open answers sized correctly when the viewport changes */
+  window.addEventListener("resize", function () {
+    document.querySelectorAll('.faq-q[aria-expanded="true"]').forEach(function (q) {
+      var a = q.parentElement.querySelector(".faq-a");
+      if (a) a.style.maxHeight = a.scrollHeight + "px";
+    });
+  }, { passive: true });
 
   /* Contact form — validates, then hands off to WhatsApp or email.
      MBT has no message backend, so we are explicit about the handoff. */
