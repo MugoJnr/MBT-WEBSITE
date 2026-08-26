@@ -31,7 +31,7 @@ function renderNav() {
   return `<header class="nav" id="navbar">
   <div class="nav-inner">
     <a class="nav-brand" href="/" aria-label="MugoByte Technologies | Home">
-      <img src="/assets/img/mugobyte-logo.webp?v=2" alt="MugoByte Technologies logo" width="118" height="46">
+      <img src="/assets/img/mugobyte-logo.webp" alt="MugoByte Technologies logo" width="118" height="46">
     </a>
     <nav class="nav-links" aria-label="Primary">
 ${links}
@@ -67,7 +67,7 @@ function renderFooter() {
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="/" aria-label="MugoByte Technologies | Home">
-          <img src="/assets/img/mugobyte-logo.webp?v=2" alt="MugoByte Technologies logo" width="123" height="48" loading="lazy">
+          <img src="/assets/img/mugobyte-logo.webp" alt="MugoByte Technologies logo" width="123" height="48" loading="lazy">
         </a>
         <p>Practical software for Kenyan businesses | built, hosted and supported by the people who made it.</p>
         <div class="social-row" style="margin-top:18px">
