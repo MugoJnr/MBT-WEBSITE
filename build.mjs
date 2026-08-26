@@ -17,6 +17,7 @@ const icons = {
   farm: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 21V9m0 0C12 5 9 3 4 3c0 5 3 7 8 6Zm0 3c0-4 3-6 8-6 0 5-3 7-8 6Z"/></svg>',
   chart: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8m0 0h-5m5 0v5"/></svg>',
   book: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 6c-1.8-1.6-4.2-2-8-2v14c3.8 0 6.2.4 8 2 1.8-1.6 4.2-2 8-2V4c-3.8 0-6.2.4-8 2Zm0 0v14"/></svg>',
+  pulse: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M3 12h4l2-7 4 14 2-7h6"/></svg>',
   instagram: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>',
   whatsapp: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Z"/><path d="M8.7 9.2c0 3.2 2.9 6.1 6.1 6.1l1.5-1.5-1.9-1.3-1 .6a4.4 4.4 0 0 1-2.5-2.5l.6-1-1.3-1.9-1.5 1.5Z" fill="currentColor" stroke="none"/></svg>',
 };
@@ -80,6 +81,7 @@ ${socials}
           <a href="/pos">MugoByte POS</a>
           <a href="/farm">Farm Management</a>
           <a href="/trading">AI Trading Bot</a>
+          <a href="/services#pulse">Pulse</a>
           <a href="${company.examhub}" target="_blank" rel="noopener">ExamHub Kenya</a>
         </div>
       </div>

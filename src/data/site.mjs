@@ -21,6 +21,7 @@ export const company = {
   portal: "https://portal.mugobyte.com",
   trading: "https://trading.mugobyte.com",
   examhub: "https://examhub-kenya.pages.dev",
+  pulseDownload: "https://portal.mugobyte.com/downloads#pulse",
 };
 
 export const nav = [
@@ -62,6 +63,7 @@ export const products = [
     tags: ["Livestock", "Milk Records", "Alerts"],
     href: "/farm",
     image: "/assets/img/farm.webp",
+    shot: "/assets/img/farm-hero.webp",
     icon: "farm",
     tone: "green",
   },
@@ -75,7 +77,22 @@ export const products = [
     tags: ["Crypto", "Gold", "24/7"],
     href: "/trading",
     image: "/assets/img/trading.webp",
+    shot: "/assets/img/trading-dashboard.webp",
     icon: "chart",
+    tone: "",
+  },
+  {
+    id: "pulse",
+    name: "Pulse",
+    shortName: "Pulse",
+    tagline: "Windows system monitor & controls",
+    description:
+      "Live CPU, memory, storage and network status with quick performance and maintenance actions for Windows PCs.",
+    tags: ["Windows", "Monitoring", "Utilities"],
+    href: "/services#pulse",
+    image: "/assets/img/pulse.webp",
+    shot: "/assets/img/pulse-dashboard.webp",
+    icon: "pulse",
     tone: "",
   },
   {
@@ -88,6 +105,7 @@ export const products = [
     tags: ["Free Forever", "All Universities"],
     href: company.examhub,
     image: "/assets/img/examhub.webp",
+    shot: "/assets/img/examhub-home.webp",
     icon: "book",
     tone: "green",
     external: true,
