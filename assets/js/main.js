@@ -93,14 +93,14 @@
         if (!window.gsap || !window.ScrollTrigger) return;
         gsap.registerPlugin(ScrollTrigger);
         gsap.fromTo(storyShot,
-          { scale: 0.9, y: 70, rotate: 1.5 },
+          { scale: 0.96, y: 40 },
           {
-            scale: 1, y: 0, rotate: 0, ease: "none",
+            scale: 1, y: 0, ease: "none",
             scrollTrigger: {
               trigger: storyShot.closest("[data-story]") || storyShot,
-              start: "top 92%",
-              end: "center 55%",
-              scrub: 1
+              start: "top 90%",
+              end: "center 60%",
+              scrub: 0.6
             }
           });
       };

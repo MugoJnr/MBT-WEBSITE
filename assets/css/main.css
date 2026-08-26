@@ -11,7 +11,7 @@
   --border: rgba(15, 23, 42, 0.08);
   --border-strong: rgba(15, 23, 42, 0.14);
   --text: #1a2332;
-  --muted: #5c6b82;
+  --muted: #475569;
   --faint: #8b97a8;
   --accent: #0b7fd4;
   --accent-deep: #0969b3;
@@ -681,7 +681,8 @@ select.input { appearance: auto; }
   display: block;
   background: var(--surface-2);
 }
-.story-shot-frame { will-change: transform; }
+.story-shot-frame { will-change: transform; transform-origin: center center; }
+.story-shot-icon { max-width: 420px; margin: 0 auto; }
 
 /* ---------- Service index ---------- */
 .service-index { border-top: 1px solid var(--border-strong); }
