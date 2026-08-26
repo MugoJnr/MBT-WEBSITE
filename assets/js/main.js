@@ -109,7 +109,27 @@
     document.head.appendChild(s);
   }
 
-  /* Stat counters */
+  /* Subtle hero depth on pointer (desktop only) */
+  var heroMain = document.querySelector("[data-hero-main]");
+  var heroFloat = document.querySelector("[data-hero-float]");
+  if (heroMain && !reduced && window.matchMedia("(pointer: fine)").matches) {
+    var heroVisual = heroMain.closest(".hero-visual");
+    if (heroVisual) {
+      heroVisual.addEventListener("mousemove", function (e) {
+        var r = heroVisual.getBoundingClientRect();
+        var x = (e.clientX - r.left) / r.width - 0.5;
+        var y = (e.clientY - r.top) / r.height - 0.5;
+        heroMain.style.transform = "perspective(1200px) rotateY(" + (x * 3) + "deg) rotateX(" + (-y * 2) + "deg)";
+        if (heroFloat) heroFloat.style.transform = "translate(" + (x * 8) + "px, " + (y * 6) + "px)";
+      });
+      heroVisual.addEventListener("mouseleave", function () {
+        heroMain.style.transform = "";
+        if (heroFloat) heroFloat.style.transform = "";
+      });
+    }
+  }
+
+  /* Stat counters — only when present */
   var counters = document.querySelectorAll("[data-count]");
   function runCounter(el) {
     var target = parseFloat(el.dataset.count);
